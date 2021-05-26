@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
+
+	<!-- pojo 객체 선언 -->
+	<bean id="mesBean1" class="day0526.ex1.Message1"/>
+	<bean id="mesBean2" class="day0526.ex1.Message2"/>
+
+</beans>

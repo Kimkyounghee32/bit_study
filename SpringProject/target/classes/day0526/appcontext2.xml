@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
+
+	<!-- pojo 객체 선언 -->
+	<bean class="day0526.ex2.MyInfo" id="my">
+	<constructor-arg value="이영자"/>
+	<constructor-arg value="22"/>
+	
+	<!-- 벨류값이 짧을때 방식 -->
+	<!-- <constructor-arg value="서울 강남구"/> -->
+	
+	<!-- 벨류값이 길때 방식 : 벨류값을 따로 설정-->
+	<constructor-arg>
+		<value>서울시 강남구 역삼동 레미안아파트</value>
+	</constructor-arg>
+	
+</bean>
+
+	<bean id="person" class="day0526.ex2.Person">
+		<!-- 레퍼런스 생성자 주입 -->
+		<constructor-arg ref="my"/>
+		
+		<!-- 학교명은 setter 주입 -->
+		<property name="schoolName" value="한국고등학교"/>
+	</bean>
+</beans>

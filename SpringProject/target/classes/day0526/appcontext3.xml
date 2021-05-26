@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
+
+
+	<bean class="day0526.ex3.Shop" id="shop">
+		<constructor-arg value="화이트"/>
+		<property name="sangpum" value="바지"/>
+		<property name="price" value="30000"/>
+	
+	</bean>
+
+	<bean class="day0526.ex3.Jumun" id="j">
+		<property name="cnt" value="3"/>
+		<!-- 세터방식은 ref사용 -->
+		<property name="shop" ref="shop"/>
+	</bean>
+
+</beans>

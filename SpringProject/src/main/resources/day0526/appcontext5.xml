@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+
+	<context:annotation-config/> <!-- 어노테이션 사용시 추가 -->
+	
+	<!-- 스캔할 패키지 추가 : 어노테이션을 사용한 패키지, * 사용가능. 여러패키지일경우 , 로 이어서 추가하면됨 -->
+	<context:component-scan base-package="day0526.ex5"/>
+
+
+	<!-- <bean id="ktire" class="day0526.ex5.KoreaTire"/>
+	<bean id="car" class="day0526.ex5.Car">
+		<constructor-arg ref="ktire"/>
+	</bean> -->
+</beans>
