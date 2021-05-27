@@ -39,8 +39,8 @@ public class ApplicationConfig {
 		hobby.add("독서");
 		hobby.add("공예");
 		hobby.add("운동");
-		
 		s.setHobby(hobby);
+		
 		return s;
 	}
 	

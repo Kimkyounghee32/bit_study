@@ -18,12 +18,13 @@ public class MessageMain {
 		
 		System.out.println("스프링에서의 객체 생성과 호출");
 		ApplicationContext context=
-				new ClassPathXmlApplicationContext("day0526/appcontext1.xml");//위치를 찾아서 xml파일 선언
+				new ClassPathXmlApplicationContext("day0526/appcontext1.xml");
+												//위치를 찾아서 xml파일 선언
 		
+		//반환타입이 오브젝트이기 때문에 형변환 필요
 		MessageInter m3=(Message1)context.getBean("mesBean1");
 		m3.sayHello("유재석");
 		//다른방법
-		//반환타입이 오브젝트이기 때문에 형변환 필요
 		MessageInter m4=context.getBean("mesBean2",Message2.class);
 		m4.sayHello("캔디");		
 	}

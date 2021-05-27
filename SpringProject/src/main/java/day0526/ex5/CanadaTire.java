@@ -2,8 +2,8 @@ package day0526.ex5;
 
 import org.springframework.stereotype.Component;
 
-@Component //xml에 자동등록
-public class canadaTire implements Tire {
+@Component //xml 에 자동 등록
+public class CanadaTire implements Tire {
 
 	@Override
 	public String getTireName() {
@@ -12,3 +12,4 @@ public class canadaTire implements Tire {
 	}
 
 }
+

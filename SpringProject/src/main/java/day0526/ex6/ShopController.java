@@ -18,13 +18,13 @@ public class ShopController {
 		dto1.setSang("딸기");
 		dto1.setSu(2);
 		dto1.setDan(1000);
-		
-		//데이타 추가 후 출력
+		//데이타 추가후 출력
 		dao.insertShop(dto1);
 		dao.writeShop();
 		
-		//상품명 수정 후 출력
+		//상품명 수정후 출력
 		dao.updateShop("사과");
 		dao.writeShop();
 	}
+
 }

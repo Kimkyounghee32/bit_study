@@ -3,9 +3,7 @@ package day0526.ex3;
 public class Jumun {
 	Shop shop;
 	int cnt;
-	
-	
-	
+
 	public void setShop(Shop shop) {
 		this.shop=shop;
 	}
