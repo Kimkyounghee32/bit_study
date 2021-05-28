@@ -29,7 +29,7 @@
 	</bean>
 	
 	<!-- dao bean 선언 = 나중에 어노테이션으로 하고 생략 가능 -->
-	<bean id="shopDao" class="shop.data.ShopDao">
+	<!-- <bean id="shopDao" class="shop.data.ShopDao">
 		<property name="sqlSessionTemplate" ref="sqlSessionTemplate"/>
-	</bean>
+	</bean> -->
 </beans>

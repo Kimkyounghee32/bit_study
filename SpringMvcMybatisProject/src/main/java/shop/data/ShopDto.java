@@ -14,6 +14,7 @@ public class ShopDto {
 	private int price;
 	private String ipgoday;
 	private Timestamp writeday;
+	
 	public String getNum() {
 		return num;
 	}
