@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Gothic+A1:wght@300&family=Nanum+Gothic+Coding&family=Noto+Sans+KR:wght@300&family=Noto+Serif+KR:wght@300&family=Song+Myung&display=swap');
+div.main>div{
+	border: 0px solid gray;
+	/* 레이아웃 줄때는 보더를 주고 확인해가면서 만들자. 영역이 겹칠 경우 이벤트가 안먹는 경우가 발생 */
+	/* 보더로 레이아웃 확인후 없애고 싶을때는 0px로 변경해주면된다 */
+}
+
+div.main div.title{
+	height: 70px;
+	line-height:90px; /*y축 글자위치변경*/
+	width: 100%;
+	text-align: center; 
+	font-size: 35pt;
+	font-weight: bold;
+	font-family: 'Noto Serif KR';
+	color: #2e8b57;	
+}
+
+div.main div.menu{
+	height: 90px;
+	line-height:90px;
+	width: 100%;
+	text-align: center;
+	font-size: 18t;
+	font-family: 'Noto Serif KR';
+}
+
+div.main div.menu ul{
+	list-style: none;
+	margin-left: 600px;
+	margin-top: 20px;
+}
+
+div.main div.menu ul li{
+	float: left;
+	width: 120px;
+	height: 60px;
+	line-height : 60px;
+	text-align:center;
+	border: 1px solid gray;
+	margin-left: 10px;
+	border-radius: 20px;
+}
+
+div.main div.menu ul li:hover{
+	box-shadow: 2px 2px 2px gray;
+	color: white;
+	background-color: black;
+	}
+
+div.main div.menu ul li a{
+	text-decoration: none;
+	color: gray;
+	}
+div.main div.menu ul li a:hover{
+	color: white;
+	}
+
+div.main div.body{
+	height: 600px;
+	font-size: 12pt;
+	font-family: 'Noto Serif KR';
+	position: absolute;
+	left: 10%;
+	top: 22%;
+	width: 70%;
+}
+
+
+div.main div.login{
+	height: 100px;
+	font-size: 12pt;
+	font-family: 'Noto Serif KR';
+	position: absolute;
+	left: 70%;
+	top: 1%;
+	width: 250%;
+	z-index: 100;
+}
+
+div.main div.info{
+	height: 200px;
+	font-size: 11pt;
+	font-family: 'Noto Serif KR';
+	position: absolute;
+	left: 2%;
+	top: 35%;
+	width: 120px;
+}
+
+
+div.main>div.title a:link{
+	color: #2e8b57;
+	text-decoration: none; /* 마우스 오버시 나타났던 밑줄 사라짐 */
+}
+
+
+
+div.main>div.title a:hover{
+	color: #2f4f4f;
+	text-decoration: none;
+}
