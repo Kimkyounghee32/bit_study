@@ -4,8 +4,10 @@
 <configuration>
 	<typeAliases>
 		<typeAlias type="spring.dto.MemberDto" alias="mdto"/>
+		<typeAlias type="spring.dto.BoardDto" alias="bdto"/>
 	</typeAliases>
 	<mappers>
 		<mapper resource="spring/sql/MemberSql.xml"/>
+		<mapper resource="spring/sql/BoardSql.xml"/>
 	</mappers>
 </configuration>

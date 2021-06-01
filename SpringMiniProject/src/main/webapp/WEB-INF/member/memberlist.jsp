@@ -36,9 +36,9 @@
 			</td>
 			<td>
 				<button type="button" class="btn btn-info btn-xs"
-					onclick="updateform?num=${dto.num}">수정</button>
+					onclick="location.href='updateform?num=${dto.num}'">수정</button>
 				<button type="button" class="btn btn-danger btn-xs"
-					onclick="delete?num=${dto.num}">삭제</button>
+					onclick="location.href='delete?num=${dto.num}'">삭제</button>
 			</td>			
 		</tr>
 	</c:forEach>

@@ -21,7 +21,7 @@ public class MemberMunjeController {
 	MemberDao dao;
 	
 	@GetMapping("/member/updateform")
-	public ModelAndView updateform(String num)
+	public ModelAndView updateform(@RequestParam String num)
 	{
 		ModelAndView mview=new ModelAndView();
 		//넘버에 해당하는 dto를 받아서 넘에 넣어줌
@@ -37,6 +37,7 @@ public class MemberMunjeController {
 	public String passCheck(@RequestParam  String num,
 			@RequestParam  String pass,@ModelAttribute MemberDto dto)
 	{
+		//비번이 맞는지 체크
 		int n=dao.passCheck(num, pass);
 		if(n==1)
 		{
@@ -50,10 +51,18 @@ public class MemberMunjeController {
 		
 	}
 	
-	@GetMapping("/delete")
+	@GetMapping("/member/delete")
 	public String delete(@RequestParam String num, HttpSession session)
 	{
-		dao.deleteMember(num);
-		return "redirect:list";
+		//로그인안하면 널값이니 널체크를 해줘야한다
+		String loginId=(String)session.getAttribute("myid");
+		//세션에 저장된 아이디가 널이거나 admin 이 아니면 adminfail 로 포워드
+		//admin 일경우에만 삭제후 목록으로 이동
+		if(loginId==null || !loginId.equals("admin"))
+			return "/member/adminfail";
+		else {
+			dao.deleteMember(num);
+			return "redirect:list";
+		}
 	}
 }

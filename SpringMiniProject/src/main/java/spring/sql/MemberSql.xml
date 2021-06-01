@@ -16,6 +16,8 @@
 	<select id="loginCheckOfMember" parameterType="HashMap" resultType="int">
 		select count(*) from member where id=#{id} and pass=#{pass}
 	</select>
+	
+	<!-- 과제 -->
 	<select id="selectOneOfMember" parameterType="String" resultType="mdto">
 		select * from member where num=#{num}
 	</select>
@@ -23,7 +25,7 @@
 		select count(*) from member where num=#{num} and pass=#{pass}
 	</select>
 	<update id="updateOfMember" parameterType="mdto">
-		update member set name=#{name}, hp=#{hp} where num=#{num} and pass=#{pass}
+		update member set name=#{name}, hp=#{hp} where num=#{num}
 	</update>
 	<delete id="deleteOfMember" parameterType="String">
 		delete from member where num=#{num}

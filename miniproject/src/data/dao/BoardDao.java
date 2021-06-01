@@ -51,7 +51,7 @@ public class BoardDao {
 	
 	String sql="update repleboard set restep=restep+1 where reg=? "
 			+ "and restep>?"; 
-			//reg(그룹)와 같거나 restep(답글순서에 관한 변수)이 전달받은것보다 클경우 restep에 +1
+			//reg와 같거나(같은그룹이면서) restep(답글순서에 관한 변수)이 전달받은것보다 클경우 restep에 +1
 	int n=0;
 	try {
 		pstmt=conn.prepareStatement(sql);
@@ -128,7 +128,7 @@ public class BoardDao {
 		}
 	}
 	
-	//전체 갯수 구하기
+	//전체 갯수 구하기(페이징처리에필요)
 	public int getTotalCount()
 	{
 		Connection conn=null;

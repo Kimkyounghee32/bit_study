@@ -7,35 +7,12 @@
 <title>updateform</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
-<script type="text/javascript">
-	$(function(){
-		$("#btncheck").click(function(){
-			//id읽기
-			var id=$("#id").val();
-			$.ajax({
-				type:"get",
-				url:"idcheck",
-				dataType:"json",
-				data:{"id":id},
-				success:function(data){
-					if(data.count==1){
-						alert("이미 가입된 아이디입니다\n다시 입력해주세요");
-						$("#id").val("");
-						$("#id").focus();
-					}else{
-						alert("가입이 가능한 아이디입니다");
-					}
-				}
-			});
-		});
-	});
-</script>
 </head>
 <body>
 <form action="update" method="post" enctype="form-inline">
 	<input type="hidden" name="num" value="${dto.num }">
 	<table class="table table-bordered" style="width:500px;">
-		<caption><b>회원가입 수정</b></caption>
+		<caption><b>회원정보 수정</b></caption>
 		<tr>
 			<th bgcolor="orange" width="120">회원명</th>
 			<td>
@@ -44,14 +21,14 @@
 					style="width: 130px;" value="${dto.name }">
 			</td>
 		</tr>
-		<tr>
+		<%-- <tr>
 			<th bgcolor="orange" width="120">아이디</th>
 			<td>
 				<input type="text" class="form-control" name="id" id="id"
 					placeholder="아이디" 
 					style="width: 130px;" value="${dto.id }" >
 			</td>
-		</tr>
+		</tr> --%>
 		<tr>
 			<th bgcolor="orange" width="120">핸드폰</th>
 			<td>
@@ -61,8 +38,9 @@
 			</td>
 		</tr>
 		<tr>
+		<!-- 비번은 맞을때만 수정이니까 벨류찍으면 안됨 -->
 			<th bgcolor="orange" width="120">비밀번호</th>
-			<td>s
+			<td>
 				<input type="text" class="form-control" name="pass"
 					placeholder="비밀번호" 
 					style="width: 150px;">

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="board">
+
+	<select id="totalCountOfBoard" resultType="int">
+		select count(*) from board
+	</select>
+	<select id="maxNumOfBoard" resultType="int">
+		select ifnull(max(num),0) from board
+	</select>
+	<!-- 혹시 아이디(updateRestep)가 같을수도 있으니 뒤에 테이블명을 붙여준다  -->
+	<update id="updateRestepOfBoard" parameterType="HashMap">
+		update board set restep=restep+1 where reg=#{reg} and restep>#{restep}
+	</update>
+	<!-- 넘버빼고 줘야하기 때문에 컬럼명을 준다. #이아니라 $로 쓰면 컬럼명으로 인식하니 주의하자 -->
+	<insert id="insertOfBoard" parameterType="bdto">
+		insert into board(writer,id,subject,uploadname,content,
+		reg,restep,relevel,readcount,writeday) values (#{writer},
+		#{id},#{subject},#{uploadname},#{content},#{reg},#{restep},
+		#{relevel},0,now())
+	</insert>
+	<!-- 두개니까 해시맵으로 묶어야함 -->
+	<select id="selectPagingOfBoard" parameterType="HashMap" resultType="bdto">
+		select * from board order by reg desc,
+		restep asc limit #{start},#{perpage}
+	</select>
+	
+	<update id="updateReadCountOfBoard" parameterType="int">
+		update board set readcount=readcount+1 where num=#{num}
+	</update>
+	<select id="selectOneOfBoard" parameterType="int" resultType="bdto">
+	 	select * from board where num=#{num}
+	</select>
+	<!-- 회원게시판이므로 아이디에 해당하는 이름을 멤버테이블에서 반환해주는거 만들어놓기
+	따른거 다 보드인데 얘만 멤버 테이블에서 얻어온다.-->
+	<select id="searchNameOfMember" parameterType="String" resultType="String">
+		select name from member where id=#{id}
+	</select>
+	<!-- 수정 : writer는 멤버테이블에서 가져오는거라 수정불가함.
+	 업로드네임이 널이 아닐경우에만 name출력-->
+	<update id="updateOfBoard" parameterType="bdto">
+		update board set subject=#{subject},content=#{content}
+		<if test="uploadname!=null">
+			,uploadname=#{uploadname}
+		</if>
+		where num=#{num}
+	</update>
+	<!-- 삭제 -->
+	<delete id="deleteOfBoard" parameterType="int">
+		delete from board where num=#{num}
+	</delete>
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
