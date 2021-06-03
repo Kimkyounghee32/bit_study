@@ -14,7 +14,8 @@
 <a href="${root }/home">Home</a>&nbsp;&nbsp;
 <%-- <a href="${root }/login">Login</a>&nbsp;&nbsp; --%>
 <a href="${root }/member/list">Member</a>&nbsp;&nbsp;
-<a href="${root }/board/list">Boards</a>&nbsp;&nbsp;
-
+<a href="${root }/board/list">Board</a>&nbsp;&nbsp;
+<a href="${root }/board/list2">AjaxBoard</a>&nbsp;&nbsp;
+<a href="${root}/mail/send">Email</a>&nbsp;&nbsp;
 </body>
 </html>

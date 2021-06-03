@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,14 +20,14 @@
 	<input type="hidden" name="pageNum" value="${pageNum}">
 	<input type="hidden" name="reg" value="${reg}">
 	<input type="hidden" name="restep" value="${restep}">
-	<input type="hidden" name="relevel" value="${relevel}">
+	<input type="hidden" name="relevel" value="${relevel}">	
 	<input type="hidden" name="id" value="${sessionScope.myid}">  <!-- 세션스코프의 마이아이디를 id에 넣는다 -->
 	<input type="hidden" name="writer" value="${name}">
 	
 	<table class="table table-bordered" style="width: 500px;">
 		<caption><b>
-			<c:if test="${num==0 }">새글쓰기</c:if>
-			<c:if test="${num!=0 }">답글쓰기</c:if>
+			<c:if test="${num==0}">새글쓰기</c:if>
+			<c:if test="${num!=0}">답글쓰기</c:if>
 		</b></caption>
 		<tr>
 			<th bgcolor="#ddd" width="120">이름(아이디)</th>
@@ -61,9 +61,7 @@
 				onclick="history.back()">이전</button>
 			</td>
 		</tr>
-		
 	</table>
-
 </form>
 </body>
 </html>

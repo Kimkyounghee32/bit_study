@@ -14,20 +14,34 @@
 <table class="table table-bordered" style="width: 1200px; margin-left: 100px">
 	<caption><b>게시판 내용보기</b></caption>
 	<tr>
-		<td align="left"><b>${dto.subject}</b>
-			<span style="float: right;">
-			 	<fmt:formatDate value="${dto.writeday}" pattern="yyyy-MM-dd HH:mm"/> 
+		<td>
+			<b style="font-size: 1.5em;">${dto.subject}</b>
+			<span style="color: gray;float: right;">
+				<fmt:formatDate value="${dto.writeday}"
+				pattern="yyyy-MM-dd HH:mm"/>
 			</span>
 		</td>
 	</tr>
 	<tr>
 		<td>
-			<b>${dto.writer}(${dto.id })</b>
+			<b>${dto.writer}(${dto.id})</b>
 			<span style="float: right;">조회 ${dto.readcount}</span>
+
 		</td>
 	</tr>
 	<tr>
 		<td>
+		<div>
+			<c:if test="${dto.uploadname!='no' }"></c:if>
+			<c:forTokens var="f" items="${dto.uploadname}" delims=",">
+				<div>
+					<a href="download?clip=${f}">
+					<span class="glyphicon glyphicon-download-alt"></span>
+					<span>${f}</span>
+					</a>
+				</div>	
+			</c:forTokens>
+		</div>
 		<pre>${dto.content}</pre>
 		<br>
 			<c:if test="${dto.uploadname!='no'}">
@@ -42,13 +56,12 @@
 		<td>
 			<c:if test="${sessionScope.loginok!=null}">
 				<button type="button" class="btn btn-info btn-xs"
-				onclick="location.href='form?num=${dto.num}&reg=${dto.reg}&restep=${dto.restep}
-					&relevel=${dto.relevel}&pageNum=${pageNum}'">답글</button>
+				onclick="location.href='form?num=${dto.num}&reg=${dto.reg}&restep=${dto.restep}&relevel=${dto.relevel}&pageNum=${pageNum}'">답글</button>
 			</c:if>
-			
+
 			<c:if test="${sessionScope.myid==dto.id }">
 				<button type="button" class="btn btn-info btn-xs"
-				onclick="location.href='updateform?num${dto.num}&pageNum=${pageNum}'">수정</button>
+				onclick="location.href='updateform?num=${dto.num}&pageNum=${pageNum}'">수정</button>
 				
 				<button type="button" class="btn btn-info btn-xs"
 				onclick="location.href='delete?num=${dto.num}&pageNum=${pageNum}'">삭제</button>

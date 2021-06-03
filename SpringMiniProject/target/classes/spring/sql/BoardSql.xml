@@ -11,11 +11,12 @@
 	</select>
 	<!-- 혹시 아이디(updateRestep)가 같을수도 있으니 뒤에 테이블명을 붙여준다  -->
 	<update id="updateRestepOfBoard" parameterType="HashMap">
-		update board set restep=restep+1 where reg=#{reg} and restep>#{restep}
+		update board set restep=restep+1 where reg=#{reg}
+		 and restep>#{restep}
 	</update>
 	<!-- 넘버빼고 줘야하기 때문에 컬럼명을 준다. #이아니라 $로 쓰면 컬럼명으로 인식하니 주의하자 -->
 	<insert id="insertOfBoard" parameterType="bdto">
-		insert into board(writer,id,subject,uploadname,content,
+		insert into board (writer,id,subject,uploadname,content,
 		reg,restep,relevel,readcount,writeday) values (#{writer},
 		#{id},#{subject},#{uploadname},#{content},#{reg},#{restep},
 		#{relevel},0,now())
@@ -50,6 +51,13 @@
 	<delete id="deleteOfBoard" parameterType="int">
 		delete from board where num=#{num}
 	</delete>
+	<select id="selectAllOfBoard" resultType="bdto">
+		select * from board order by reg desc,restep asc
+	</select>
+	
+	<select id="selectPhotoOfBoard" resultType="bdto">
+		select * from board where uploadname!='no' order by reg desc,restep asc 
+	</select>
 </mapper>
 
 

@@ -80,6 +80,12 @@ public class BoardListController {
 	
 	
 	
+	@GetMapping("/board/list2")
+	public String list2()
+	{
+		return "/board/ajaxlist";
+	}
+	
 	/*
 	 * @GetMapping("/board/list") public String boardlist() {
 	 * 

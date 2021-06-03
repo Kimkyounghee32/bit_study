@@ -12,10 +12,10 @@
 </head>
 <body>
 <!-- 로그인 해야만 글쓰기가 가능 -->
-<c:if test="${sessionScope.loginok!=null }">
-<button type="button" class="btn btn-default"
-style="margin-left: 300px; width: 120px;" 
-onclick="location.href='form'">글쓰기</button>
+<c:if test="${sessionScope.loginok!=null}">
+ <button type="button" class="btn btn-info"
+	style="margin-left: 300px;width: 120px;"
+	onclick="location.href='form'">글쓰기</button>
 </c:if>
 <table class="table table-bordered" style="width: 1200px;">
 	<caption><b>답변형게시판</b></caption>
@@ -35,8 +35,7 @@ onclick="location.href='form'">글쓰기</button>
 	</c:if>
 	<c:if test="${totalCount>0}">
 	  <c:forEach var="dto" items="${list}">
-
-			<tr>
+		<tr>
 	  		<td align="center">${no}</td>
 	  		<c:set var="no" value="${no-1}"/>
 	  		<td>

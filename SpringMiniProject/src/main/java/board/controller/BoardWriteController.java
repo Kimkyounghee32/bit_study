@@ -60,43 +60,39 @@ public class BoardWriteController {
 	
 	
 	@PostMapping("/board/insert")
-	//일단 dto가 먼저 읽어오고, 그 다음 따로 읽어야하는 페이지넘,
-	//경로 구해야하니까 리퀘스트 넣어줌
-	public String insert(@ModelAttribute BoardDto dto, 
-			@RequestParam String pageNum, HttpServletRequest request)
+	public String insert(@ModelAttribute BoardDto dto,
+			@RequestParam String pageNum,
+			HttpServletRequest request)
 	{
 		//이미지가 업로드될 폴더 구하기
 		String path=request.getSession().getServletContext().getRealPath("/WEB-INF/image");
 		System.out.println(path);
 		
-		//이미지 업로드 안했을 경우 no라고 저장
+		//이미지 업로드 안했을 경우 no 라고 저장
 		String upload="";
 		String f=dto.getPhoto().get(0).getOriginalFilename();
 		if(f.equals(""))
 			upload="no";
-		else { //업로드 했을 경우
+		else {//업로드 했을경우
 			SpringFileWriter sfw=new SpringFileWriter();
 			for(MultipartFile file:dto.getPhoto())
 			{
-				//폴더에 이미지 저장하기(저장된 이미지명 반환)
+				//폴더에 이미지 저장하기(저장된 이미지명반환)
 				String fileName=sfw.writeFile(file, path);
-				upload+=fileName+",";
-				
+				upload+=fileName+",";				
 			}
-			//마지막 컴마제거
+			//마지막 컴마 제거
 			upload=upload.substring(0,upload.length()-1);
-			
-			//dto에 업로드 파일명 저장
-			dto.setUploadname(upload);
-			//db에 insert
-			dao.insertBoard(dto);
-			
-			
 		}
-		return "redirect:list?pageNum="+pageNum;
-		//새글이면 1페이지로 가고 //답글일 경우 보던페이지로 이동
-		//여기까지하면 목록도 나오고(결과확인 가능), 저장도 되어야함
+		
+		//dto 에 업로드파일명 저장
+		dto.setUploadname(upload);
+		//db 에 insert
+		dao.insertBoard(dto);
+		
+		return "redirect:list?pageNum="+pageNum;//답글일경우 보던페이지로
 	}
+
 	
 
 }
