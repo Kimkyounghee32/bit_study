@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 매퍼 이용할 때는 네임스페이스가 인터페이스와 연동되어야하기 때문에 
+매퍼에 경로를 포함해서 네임스페이스에 넣어야 자동으로 연동=인식함 -->
+<mapper namespace="person.data.MysqlPersonMapper">
+	<insert id="insertPerson" parameterType="person">
+		insert into person (name,sajin,buseo,hp,ipsaday,writeday) 
+		values (#{name},#{sajin},#{buseo},#{hp},#{ipsaday},now())
+	</insert>
+	<select id="getAllDatas" resultType="person">
+		select * from person order by num desc
+	</select>
+	<select id="getData" parameterType="String" resultType="person">
+		select * from person where num=#{num}
+	</select>
+	<delete id="deleteData" parameterType="String">
+		delete from person where num=#{num}
+	</delete>
+</mapper>
