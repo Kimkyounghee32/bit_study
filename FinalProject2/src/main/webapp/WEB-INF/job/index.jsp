@@ -41,6 +41,9 @@
 		<div class="body">
 			<jsp:include page="layout/body.jsp" />
 		</div>
+		<div class="login">
+			<jsp:include page="login/home.jsp" />
+		</div>
 	</div>
 </body>
 </html>
